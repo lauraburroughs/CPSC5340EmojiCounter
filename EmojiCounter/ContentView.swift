@@ -29,16 +29,31 @@ struct ContentView: View {
                 ForEach($items) { $item in
                     HStack {
                         Text(item.emojiName)
+                            .padding(.leading, 20)
+                        Text("Counter: \(item.count)")
+                            .padding(.leading, 5)
                         Spacer()
                         Button("-") {
                             item.count -= 1
                         }
-                        Text("\(item.count)")
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 5)
+                        .foregroundColor(.blue)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(Color.orange, lineWidth: 2)
+                            )
                         Button("+") {
                             item.count += 1
                         }
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 5)
+                        .foregroundColor(.blue)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 5)
+                                .stroke(Color.orange, lineWidth: 2)
+                            )
                     }
-                    .padding(.leading, 20)
                     .padding(.vertical, 4)
                 }
             }
