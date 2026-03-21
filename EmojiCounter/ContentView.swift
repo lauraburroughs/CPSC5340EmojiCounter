@@ -7,48 +7,52 @@
 
 import SwiftUI
 
+struct EmojiItem: Identifiable {
+    var id = UUID()
+    var emojiName: String
+    var count : Int
+}
+
 struct ContentView: View {
+    @State private var items = [
+        EmojiItem(emojiName: "🍔", count: 0),
+        EmojiItem(emojiName: "🍕", count: 0),
+        EmojiItem(emojiName: "🌮", count: 0),
+        EmojiItem(emojiName: "🌭", count: 0),
+        EmojiItem(emojiName: "🍝", count: 0)
+    ]
+    
+    
     var body: some View {
         NavigationStack {
             List {
-                Group {
-                    EmojiItem()
-                    EmojiItem()
-                    EmojiItem()
-                    EmojiItem()
-                    EmojiItem()
-                    EmojiItem()
+                ForEach($items) { $item in
+                    HStack {
+                        Text(item.emojiName)
+                        Spacer()
+                        Button("-") {
+                            item.count -= 1
+                        }
+                        Text("\(item.count)")
+                        Button("+") {
+                            item.count += 1
+                        }
+                    }
+                    .padding(.leading, 20)
+                    .padding(.vertical, 4)
                 }
             }
-            .listStyle(GroupedListStyle())
             .navigationTitle(Text("Emoji Counter"))
         }
     }
 }
-    
-    
-    
-struct EmojiItem: View {
-    var body: some View {
-        HStack {
-                Image(systemName: "globe")
-                    .imageScale(.large)
-                    .foregroundStyle(.tint)
-                Text("Hello, world!")
-            }
-            .padding()
-            .foregroundStyle(Color(.blue))
-    }
-}
-    
-    
-    
-    #Preview {
-        ContentView()
-            .preferredColorScheme(.light)
-    }
-    
-    #Preview {
-        ContentView()
-            .preferredColorScheme(.dark)
-    }
+        
+        #Preview {
+            ContentView()
+                .preferredColorScheme(.light)
+        }
+        
+        #Preview {
+            ContentView()
+                .preferredColorScheme(.dark)
+        }
