@@ -15,10 +15,30 @@ struct ContentView: View {
                 .foregroundStyle(.tint)
             Text("Hello, world!")
         }
+        .background(Color("theme"))
+        .foregroundStyle(Color("theme"))
         .padding()
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
 #Preview {
     ContentView()
+        .preferredColorScheme(.light)
+}
+
+#Preview {
+    ContentView()
+        .preferredColorScheme(.dark)
 }
