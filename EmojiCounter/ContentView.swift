@@ -9,36 +9,46 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            List {
+                Group {
+                    EmojiItem()
+                    EmojiItem()
+                    EmojiItem()
+                    EmojiItem()
+                    EmojiItem()
+                    EmojiItem()
+                }
+            }
+            .listStyle(GroupedListStyle())
+            .navigationTitle(Text("Emoji Counter"))
         }
-        .background(Color("theme"))
-        .foregroundStyle(Color("theme"))
-        .padding()
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-#Preview {
-    ContentView()
-        .preferredColorScheme(.light)
+    
+    
+    
+struct EmojiItem: View {
+    var body: some View {
+        HStack {
+                Image(systemName: "globe")
+                    .imageScale(.large)
+                    .foregroundStyle(.tint)
+                Text("Hello, world!")
+            }
+            .padding()
+            .foregroundStyle(Color(.blue))
+    }
 }
-
-#Preview {
-    ContentView()
-        .preferredColorScheme(.dark)
-}
+    
+    
+    
+    #Preview {
+        ContentView()
+            .preferredColorScheme(.light)
+    }
+    
+    #Preview {
+        ContentView()
+            .preferredColorScheme(.dark)
+    }
