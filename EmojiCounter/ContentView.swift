@@ -57,7 +57,7 @@ struct ContentView: View {
                     .padding(.vertical, 4)
                 }
             }
-            .navigationTitle(Text("Emoji Counter"))
+            .navigationTitle(Text("Food Fight!"))
         }
     }
 }
