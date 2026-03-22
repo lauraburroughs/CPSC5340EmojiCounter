@@ -36,23 +36,16 @@ struct ContentView: View {
                         Button("-") {
                             item.count -= 1
                         }
-                        .padding(.horizontal, 10)
-                        .padding(.vertical, 5)
-                        .foregroundColor(.blue)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 5)
-                                .stroke(Color.orange, lineWidth: 2)
-                            )
+                        .buttonStyle(.bordered)
+                        .padding(.horizontal, 5)
+                        .padding(.vertical, 8)
+                        
                         Button("+") {
                             item.count += 1
                         }
-                        .padding(.horizontal, 10)
-                        .padding(.vertical, 5)
-                        .foregroundColor(.blue)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 5)
-                                .stroke(Color.orange, lineWidth: 2)
-                            )
+                        .buttonStyle(.bordered)
+                        .padding(.horizontal, 5)
+                        .padding(.vertical, 8)
                     }
                     .padding(.vertical, 4)
                 }
